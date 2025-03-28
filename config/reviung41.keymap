@@ -8,6 +8,47 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
+
+#include "helpers.h"
+#include "behaviors.dtsi"
+
+// MACROS
+// I'll remove this comment later
+#define ALPHA 0
+#define NAV 1
+#define MOUSE 2
+#define NUM 3
+#define FUNC 4
+
+// COMBOS
+COMBO(caps_lock, &caps_word, 16 19, 0)
+COMBO(caps_word, &kp CAPSLOCK, 15 20, 0)
+
+COMBO(escape, &kp ESC, 14 15 16, 0)
+COMBO(enter, &kp ENTER, 19 20 21, 0)
+
+COMBO(paren_l, &paren_angle_l, 15 16, 0)
+COMBO(paren_r, &paren_angle_r, 19 20, 0)
+
+COMBO(bracket_l, &kp LEFT_BRACKET, 27 28, 0)
+COMBO(bracket_r, &kp RIGHT_BRACKET, 31 32, 0)
+
+COMBO(star_percent, &star_percent, 3 16, 0)
+COMBO(slash, &slash, 19 8, 0)
+
+COMBO(minus, &kp MINUS, 14 15, 0)
+COMBO(equal, &kp EQUAL, 20 21, 0)
+
+COMBO(pipe, &kp PIPE, 3 4, 0)
+COMBO(hash, &kp HASH, 7 8, 0)
+
+COMBO(ampersand, &kp AMPERSAND, 2 3, 0)
+COMBO(dollar, &kp DOLLAR, 8 9, 0)
+
+COMBO(grave_tilde, &kp GRAVE, 26 27, 0)
 
 / {
         keymap {
@@ -64,7 +105,7 @@
                         bindings = <
    &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
    &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none              &none        &none        &none        &none        &none        &none
-   &none           &none           &none           &none           &none &none              &sys_reset       &none        &none        &none        &none        &none
+   &none           &none           &none           &none           &none &bootloader              &sys_reset       &none        &none        &none        &none        &none
                                                              &trans      &trans       &tog 3        &trans      &trans
                         >;
                 };
